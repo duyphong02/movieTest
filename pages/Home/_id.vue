@@ -98,7 +98,7 @@
 
 
                         <span class="text-slate-400 pt-2 font-semibold">
-                            (2023)
+                            2023
                         </span>
                         <div class="h-28">
                             <span class="line-clamp-4 py-2 text-sm font-light leading-relaxed">
@@ -137,6 +137,7 @@
 
 <script>
 export default {
+    middleware: "config",
     data() {
         return {
             product3: {},

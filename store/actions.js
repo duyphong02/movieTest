@@ -33,16 +33,22 @@ export default {
     } catch (error) {
     }
   },
-  async fetchMovieTrailer({ },movieId){
+  async fetchMovieTrailer({ }, movieId) {
     try {
       const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
       return response.data.results;
-      
+
     } catch (error) {
-      
+
     }
   },
-   SearchMoviee({ commit } , id) {
-    commit('SET_SEARCH',id)
-   }
+  SearchMoviee({ commit }, id) {
+    commit('SET_SEARCH', id)
+  },
+  SetUser({ commit }, userData) {
+    commit("SET_USER", userData)
+  },
+  isLogin({ }, userJSON) {
+    localStorage.setItem('user', userJSON);
+  }
 }
