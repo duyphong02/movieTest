@@ -3,11 +3,13 @@
 </template>
 
 <script>
-import HomeComponent from '@/components/HomeComponent'
+import HomeComponent from '@/components/HomeComponent';
+
 export default {
     components: {
         HomeComponent
     },
+    layout:"custom",
     data() {
         return {
             product1: [],
@@ -24,31 +26,6 @@ export default {
             })
         }
     },
-//     searchUser() {
-//         const searchTerm = this.searchList.trim().toLowerCase()
-//         if (!searchTerm) {
-//             // Nếu ô tìm kiếm trống, hiển thị lại toàn bộ danh sách sản phẩm
-//             return this.product1
-//         } else {
-//             // Lọc danh sách sản phẩm dựa trên giá trị searchTerm
-//             return this.product1.filter(product =>
-//                 product.title.toLowerCase().includes(searchTerm)
-//             )
-//         }
-//     },
-//     computed: {
-//         filteredProducts() {
-//             // Sử dụng computed property để lọc danh sách sản phẩm dựa trên searchList
-//             const searchTerm = this.searchList.trim().toLowerCase()
-//             if (!searchTerm) {
-//                 return this.product1  // Hiển thị toàn bộ danh sách nếu không có giá trị tìm kiếm
-//             } else {
-//                 return this.product1.filter(product =>
-//                     product.title.toLowerCase().includes(searchTerm)
-//                 )
-//             }
-//         }
-//     }
  }
 
 

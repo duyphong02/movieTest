@@ -41,5 +41,8 @@ export default {
     } catch (error) {
       
     }
-  }
+  },
+   SearchMoviee({ commit } , id) {
+    commit('SET_SEARCH',id)
+   }
 }

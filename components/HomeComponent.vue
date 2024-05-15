@@ -1,10 +1,8 @@
 <template>
-  <div class="bg-white">
+  <div class="bg-gray-300">
     <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
       <div style="display: flex; justify-content: space-between;" class="header">
         <h2 class="text-2xl font-bold tracking-tight text-gray-900">Phim Chiếu Rạp</h2>
-        <input @blur="searchUser" v-model="searchList" style="border: 1px solid ; margin-top: 10px;" type="text"
-          placeholder="Search" class="name"> </input>
       </div>
       <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         <div v-for="product in product2" :key="product.id" class="group relative">
@@ -29,6 +27,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   props: {
     product1: {
@@ -39,49 +38,33 @@ export default {
   },
   data() {
     return {
-      searchList: '',
+      // searchList: '',
       product2: []
     }
   },
   mounted() {
     this.product2 = this.product1
-    console.log(1234567, this.product2, this.product1);
   },
   methods: {
-    searchUser() {
-      const searchTerm = this.searchList.trim().toLowerCase()
-      if (!searchTerm) {
-        // Nếu ô tìm kiếm trống, hiển thị lại toàn bộ danh sách sản phẩm
-        this.product2 = this.product1
-      } else {
-        // Lọc danh sách sản phẩm dựa trên giá trị searchTerm
-        this.product2 = this.product1.filter(product =>
-          product.title.toLowerCase().includes(searchTerm)||
-        String(product.vote_average).includes(searchTerm) ||  // Chuyển đổi vote_average thành chuỗi và tìm kiếm
-        String(product.vote_count).includes(searchTerm)       // Chuyển đổi vote_count thành chuỗi và tìm kiếm
-      );
-      }
-    },
     getImg(path) {
       return `https://image.tmdb.org/t/p/w500/${path}`
     },
     RouterClick(id) {
-      console.log(1233);
-      this.$router.push(`home/${id}`)
+      this.$router.push(`/home/${id}`)
     }
   },
   computed: {
-    filteredProducts() {
-      // Sử dụng computed property để lọc danh sách sản phẩm dựa trên searchList
-      const searchTerm = this.searchList.trim().toUpperCase()
-      if (!searchTerm) {
-        return this.product1  // Hiển thị toàn bộ danh sách nếu không có giá trị tìm kiếm
-      } else {
-        return this.product1.filter(product =>
-          product.title.toUpperCase().includes(searchTerm)
-        )
-      }
-    }
+    ...mapState(["key"]),
+  },
+  watch: {
+    key(newValue, oldValue) {
+      this.product2 = this.product1.filter(product =>
+        product.title.toUpperCase().includes(newValue) ||
+        String(product.vote_average).includes(newValue) ||  // Chuyển đổi vote_average thành chuỗi và tìm kiếm
+        String(product.vote_count).includes(newValue)
+
+      );
+    },
   }
 }
 </script>
