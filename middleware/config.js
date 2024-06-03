@@ -5,7 +5,7 @@ export default function ({ store, redirect, route }) {
     const userLocal = localStorage.getItem('user')
     console.log(12333, userLocal);
     const dataJS = JSON.parse(userLocal)
-    if (!dataJS.email && !dataJS.password) {
+    if (!dataJS?.email && !dataJS?.password || userLocal == null) {
       return redirect('/signup')
     }
     // }
