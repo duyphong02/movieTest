@@ -1,4 +1,5 @@
 export default{
     key : '',
-    user:{}
+    user:{},
+    cart:[]
 }

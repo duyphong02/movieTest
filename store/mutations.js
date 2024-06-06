@@ -5,5 +5,8 @@ export default{
     SET_USER(state, userData) {
         console.log("userData", userData);
         state.user = { ...userData }
+    },
+    SET_CART(state,listcard){
+        state.cart.push(listcard)
     }
 }

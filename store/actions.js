@@ -52,7 +52,10 @@ export default {
   isLogin({ }, userJSON) {
     localStorage.setItem('user', userJSON);
   },
-  async RouterMovie(){
+  ClickBuyFilm({ commit }, item) {
+    commit("SET_CART",item)
+  },
+  async RouterMovie() {
     try {
       const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
       return response;
@@ -72,89 +75,109 @@ export default {
     } catch (error) {
 
     }
-},
-async RouterMovie2(){
-  try {
-    const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
-    return response;
-  } catch (error) {
-  }
-},
-async getPopularTVShows3() {
-  const config = {
-    headers: {
-      'Authorization': "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY1MTQyMWRjM2IzODg3M2ZhMjNjZTc5OTViMGVmYyIsInN1YiI6IjY2M2NkMTYyMzMzMjM2ZDg1OWEzYThiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SdwMCwuua2ispZeSA9EkhpAd-UkDDR9XsFS3xx212Dg"
+  },
+  async RouterMovie2() {
+    try {
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
+      return response;
+    } catch (error) {
     }
-  };
-  try {
-    const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
-    console.log(123, result);
-    return result;
-  } catch (error) {
+  },
+  async getPopularTVShows3() {
+    const config = {
+      headers: {
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY1MTQyMWRjM2IzODg3M2ZhMjNjZTc5OTViMGVmYyIsInN1YiI6IjY2M2NkMTYyMzMzMjM2ZDg1OWEzYThiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SdwMCwuua2ispZeSA9EkhpAd-UkDDR9XsFS3xx212Dg"
+      }
+    };
+    try {
+      const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
+      console.log(123, result);
+      return result;
+    } catch (error) {
 
-  }
-},
-async RouterMovie3(){
-  try {
-    const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
-    return response;
-  } catch (error) {
-  }
-},
-async getPopularTVShows4() {
-  const config = {
-    headers: {
-      'Authorization': "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY1MTQyMWRjM2IzODg3M2ZhMjNjZTc5OTViMGVmYyIsInN1YiI6IjY2M2NkMTYyMzMzMjM2ZDg1OWEzYThiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SdwMCwuua2ispZeSA9EkhpAd-UkDDR9XsFS3xx212Dg"
     }
-  };
-  try {
-    const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
-    console.log(123, result);
-    return result;
-  } catch (error) {
-
-  }
-},
-async RouterMovie4(){
-  try {
-    const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
-    return response;
-  } catch (error) {
-  }
-},
-async getPopularTVShows5() {
-  const config = {
-    headers: {
-      'Authorization': "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY1MTQyMWRjM2IzODg3M2ZhMjNjZTc5OTViMGVmYyIsInN1YiI6IjY2M2NkMTYyMzMzMjM2ZDg1OWEzYThiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SdwMCwuua2ispZeSA9EkhpAd-UkDDR9XsFS3xx212Dg"
+  },
+  async RouterMovie3() {
+    try {
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
+      return response;
+    } catch (error) {
     }
-  };
-  try {
-    const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
-    console.log(123, result);
-    return result;
-  } catch (error) {
+  },
+  async getPopularTVShows4() {
+    const config = {
+      headers: {
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY1MTQyMWRjM2IzODg3M2ZhMjNjZTc5OTViMGVmYyIsInN1YiI6IjY2M2NkMTYyMzMzMjM2ZDg1OWEzYThiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SdwMCwuua2ispZeSA9EkhpAd-UkDDR9XsFS3xx212Dg"
+      }
+    };
+    try {
+      const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
+      console.log(123, result);
+      return result;
+    } catch (error) {
 
-  }
-},
-async RouterMovie5(){
-  try {
-    const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
-    return response;
-  } catch (error) {
-  }
-},
-async getPopularTVShows6() {
-  const config = {
-    headers: {
-      'Authorization': "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY1MTQyMWRjM2IzODg3M2ZhMjNjZTc5OTViMGVmYyIsInN1YiI6IjY2M2NkMTYyMzMzMjM2ZDg1OWEzYThiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SdwMCwuua2ispZeSA9EkhpAd-UkDDR9XsFS3xx212Dg"
     }
-  };
-  try {
-    const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
-    console.log(123, result);
-    return result;
-  } catch (error) {
+  },
+  async RouterMovie4() {
+    try {
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
+      return response;
+    } catch (error) {
+    }
+  },
+  async getPopularTVShows5() {
+    const config = {
+      headers: {
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY1MTQyMWRjM2IzODg3M2ZhMjNjZTc5OTViMGVmYyIsInN1YiI6IjY2M2NkMTYyMzMzMjM2ZDg1OWEzYThiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SdwMCwuua2ispZeSA9EkhpAd-UkDDR9XsFS3xx212Dg"
+      }
+    };
+    try {
+      const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
+      console.log(123, result);
+      return result;
+    } catch (error) {
 
-  }
-},
+    }
+  },
+  async RouterMovie5() {
+    try {
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
+      return response;
+    } catch (error) {
+    }
+  },
+  async getPopularTVShows6() {
+    const config = {
+      headers: {
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY1MTQyMWRjM2IzODg3M2ZhMjNjZTc5OTViMGVmYyIsInN1YiI6IjY2M2NkMTYyMzMzMjM2ZDg1OWEzYThiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SdwMCwuua2ispZeSA9EkhpAd-UkDDR9XsFS3xx212Dg"
+      }
+    };
+    try {
+      const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
+      console.log(123, result);
+      return result;
+    } catch (error) {
+
+    }
+  },
+  async BuyListPhim() {
+    try {
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=b4f51421dc3b38873fa23ce7995b0efc`);
+      return response;
+    } catch (error) {
+    }
+  },
+  async BuyFilmDetail() {
+    const config = {
+      headers: {
+        'Authorization': "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNGY1MTQyMWRjM2IzODg3M2ZhMjNjZTc5OTViMGVmYyIsInN1YiI6IjY2M2NkMTYyMzMzMjM2ZDg1OWEzYThiMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SdwMCwuua2ispZeSA9EkhpAd-UkDDR9XsFS3xx212Dg"
+      }
+    };
+    try {
+      const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
+      return result;
+    } catch (error) {
+
+    }
+  },
 }
