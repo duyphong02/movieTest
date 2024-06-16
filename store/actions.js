@@ -12,7 +12,6 @@ export default {
     };
     try {
       const result = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", config)
-      console.log(123, result);
       return result;
     } catch (error) {
 
@@ -53,7 +52,10 @@ export default {
     localStorage.setItem('user', userJSON);
   },
   ClickBuyFilm({ commit }, item) {
-    commit("SET_CART",item)
+    commit("SET_CART", item)
+  },
+  setProductQuantity({ commit }, payload) {
+    commit('updateQuantity', payload);
   },
   async RouterMovie() {
     try {

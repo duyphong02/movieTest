@@ -55,7 +55,7 @@ export default {
     this.product2 = this.product1
   },
   methods: {
-    ...mapActions(['ClickBuyFilm']),
+    ...mapActions(['ClickBuyFilm']), //liệt hàm ClickBuyFilm trong action
     getImg(path) {
       return `https://image.tmdb.org/t/p/w500/${path}`
     },
@@ -63,12 +63,15 @@ export default {
       this.$router.push(`/home/${id}`)
     },
     ClickBuy(item) {
-      this.ClickBuyFilm(item)
-      this.$router.push("/ChiTietMuaPhim")
+      console.log("ClickBuyFilm");
+      this.ClickBuyFilm(item) // gọi ra
+      setTimeout(() => {
+        this.$router.push("/ChiTietMuaPhim")
+      }, 350);
     },
   },
   computed: {
-    ...mapState(["key"]),
+    ...mapState(["key"]), // lấy ra các key list sp
   },
   watch: {
     key(newValue, oldValue) {

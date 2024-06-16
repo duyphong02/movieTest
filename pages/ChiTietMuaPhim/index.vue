@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BuyPhimComponent  :product9="product9" v-if="product9" />
+        <BuyPhimComponent  />
     </div>
 </template>
 
@@ -16,15 +16,15 @@ export default {
             product9: {}
         }
     },
-    created(){
-        this.BuyListPhim()
-    },
+    // created(){
+    //     this.BuyListPhim()
+    // },
     methods:{
-      async BuyListPhim(){
-        this.$store.dispatch("BuyFilmDetail").then((res)=>{
-            this.product9 = res.data
-        })
-        }
+    //   async BuyListPhim(){
+    //     this.$store.dispatch("BuyFilmDetail").then((res)=>{
+    //         this.product9 = res.data
+    //     })
+    //     }
     }
 
 }
